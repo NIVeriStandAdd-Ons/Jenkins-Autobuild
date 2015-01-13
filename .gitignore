@@ -60,3 +60,6 @@ $RECYCLE.BIN/
 *.msi
 *.msm
 *.msp
+
+
+CI*.txt
