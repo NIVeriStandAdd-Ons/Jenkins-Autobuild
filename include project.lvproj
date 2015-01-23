@@ -632,6 +632,7 @@
 			<Item Name="BuildMonitor_BuildItems_Close.vi" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/BuildMonitor/BuildMonitor_BuildItems_Close.vi"/>
 			<Item Name="BuildMonitor_BuildItems_Init.vi" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/BuildMonitor/BuildMonitor_BuildItems_Init.vi"/>
 			<Item Name="BUIP_Callback_Files_Filter.vi" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/Common/BUIP_Callback_Files_Filter.vi"/>
+			<Item Name="Command Line Args.ctl" Type="VI" URL="../Types/Command Line Args.ctl"/>
 			<Item Name="DEP_Compute_Relative_Paths.vi" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/Deploy/DEP_Compute_Relative_Paths.vi"/>
 			<Item Name="DEP_Convert_one_path_to_remote.vi" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/Deploy/DEP_Convert_one_path_to_remote.vi"/>
 			<Item Name="DEP_DeployInstructions_fileformat.ctl" Type="VI" URL="../../../../../../../../../Program Files (x86)/National Instruments/LabVIEW 2010/resource/Framework/Providers/Builds/Deploy/DEP_DeployInstructions_fileformat.ctl"/>
