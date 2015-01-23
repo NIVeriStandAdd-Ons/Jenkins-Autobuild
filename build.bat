@@ -14,6 +14,7 @@ set myTempErrLvl=0
 set minBuildVer=2011
 set maxBuildVer=2014
 set stopAfterOneBuild=0
+set maxThisBuildVer=%maxBuildVer%
 
 if [%5]==[] goto NOParam5
 REM -- if param 5 equals 0, skip version check. 
@@ -54,6 +55,7 @@ if %1 GEQ %SourceVer% (
 		if %1 LEQ %maxBuildVer% (
 			echo Running specific version build: LabVIEW %1
 			set stopAfterOneBuild=1
+			set maxThisBuildVer=%1
 			goto %1Build
 		)
 	)
@@ -63,26 +65,34 @@ echo Error! Can't build in %1 when minimum build version is %minBuildVer%, maxim
 set myTempErrLvl=1
 goto runexit
 	
+REM Arguments passed to LabVIEWbuild.bat are these below. Note this is NOT quoted since its passed in quoted from user writing quotes in jenkins.
+REM 1 - Version of LV to launch and build in
+REM 2 - Source version of the code being built
+REM 3 - Maximum version of LabVIEW that will be used in this autobuild run
+REM 4 - OPTIONAL! - path to append to the job's workspace before passing the workspace to the labview build VI. ex: "\FXP LLB". so the build VI works in this subdirectory.
+REM 5 - OPTIONAL! - tells the labview build VI if it should skip copying from the "Built" dir after the build is done. "0", "f", "false", "n", "no" all mean skip the copy. anything else means copy
+REM 6 - OPTIONAL! - specifies text that the labview build VI will look for after "autobuild" in the autobuild.csv file. ex: "pharlap" means it will look for autobuildpharlap.csv
+
 :2011Build
-CALL "%~dp0LabVIEWbuild.bat" 2011 %SourceVer% %2 %3 %4
+CALL "%~dp0LabVIEWbuild.bat" 2011 %SourceVer% %maxThisBuildVer% %2 %3 %4
 set myTempErrLvl=%ERRORLEVEL%
 IF %myTempErrLvl% NEQ 0 GOTO RUNEXIT
 IF %stopAfterOneBuild% EQU 1 GOTO RUNEXIT
 
 :2012Build
-CALL "%~dp0LabVIEWbuild.bat" 2012 %SourceVer% %2 %3 %4
+CALL "%~dp0LabVIEWbuild.bat" 2012 %SourceVer% %maxThisBuildVer% %2 %3 %4
 set myTempErrLvl=%ERRORLEVEL%
 IF %myTempErrLvl% NEQ 0 GOTO RUNEXIT
 IF %stopAfterOneBuild% EQU 1 GOTO RUNEXIT
 
 :2013Build
-CALL "%~dp0LabVIEWbuild.bat" 2013 %SourceVer% %2 %3 %4
+CALL "%~dp0LabVIEWbuild.bat" 2013 %SourceVer% %maxThisBuildVer% %2 %3 %4
 set myTempErrLvl=%ERRORLEVEL%
 IF %myTempErrLvl% NEQ 0 GOTO RUNEXIT
 IF %stopAfterOneBuild% EQU 1 GOTO RUNEXIT
 
 :2014Build
-CALL "%~dp0LabVIEWbuild.bat" 2014 %SourceVer% %2 %3 %4
+CALL "%~dp0LabVIEWbuild.bat" 2014 %SourceVer% %maxThisBuildVer% %2 %3 %4
 set myTempErrLvl=%ERRORLEVEL%
 IF %myTempErrLvl% NEQ 0 GOTO RUNEXIT
 IF %stopAfterOneBuild% EQU 1 GOTO RUNEXIT

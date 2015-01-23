@@ -1,3 +1,7 @@
+# Executables - note you must build the get project lv version.exe for things to work 
+*.exe
+/Get Project LV Version/*.ini		
+
 # Libraries
 *.lvlibp
 *.llb
@@ -8,8 +12,13 @@
 *.dylib
 #*.dll		These are allowed because models are too easy to accidently ignore for demo repositories
 
-# Executables
-*.exe
+
+
+# Build log files
+CI_*_Error*.txt
+CI_*_mc*.txt
+CI_*_Running*.txt
+CI_*_buildlog*.txt
 
 # Metadata
 *.aliases
@@ -61,5 +70,4 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-
-CI*.txt
+/Get Project LV Version/GetProjVersion.ini
