@@ -1,6 +1,8 @@
 ## Jenkins Autobuild ##
 
 **Jenkins Autobuild** is a set of files used to launch LabVIEW builds from [Jenkins](http://jenkins-ci.org/). This is an expansion of JKI's files and video posted on [their blog](http://blog.jki.net/news/niweek-2012-fire-and-forget-bulletproof-builds-using-continuous-integration-with-labview-video-slides-now-available/). The main addition from JKI's files is the ability to do builds in multiple versions of LabVIEW as well as build steps through autobuild.csv files.
+To simplify your life clone this repository to C:\Autobuild using the git clone <directory> option:
+<pre><code>git clone https://github.com/NIVeriStandAdd-Ons/Jenkins-Autobuild C:\Autobuild</pre></code>
 
 ### LabVIEW Version ###
 
