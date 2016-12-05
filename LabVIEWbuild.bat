@@ -13,6 +13,10 @@ set mcfile="%~dp0CI_%EXECUTOR_NUMBER%_mc%1.txt"
 set buildlogfile="%~dp0CI_%EXECUTOR_NUMBER%_buildlog%1.txt"
 set myTempErrLvl=0
 set mcLogExists=0
+set programFilesPath=C:\Program Files (x86)
+if %PROCESSOR_ARCHITECTURE% == x86 (
+  if not defined PROCESSOR_ARCHITEW6432 set programFilesPath=C:\Program Files
+  )
 
 REM -- CREATE TMP FILES
 echo. 2>%runfile%
@@ -36,7 +40,7 @@ REM 8 - Log file used to pass run-time information back to the batch file
 REM 9 - Maximum version of LabVIEW that will be used in this autobuild run
 REM 10 - OPTIONAL! - tells the labview build VI if it should skip copying from the "Built" dir after the build is done. "0", "f", "false", "n", "no" all mean skip the copy. anything else means copy
 REM 11 - OPTIONAL! - specifies text that the labview build VI will look for after "autobuild" in the autobuild.csv file. ex: "pharlap" means it will look for autobuildpharlap.csv
-START "" "C:\Program Files (x86)\National Instruments\LabVIEW %1\LabVIEW.exe" "%~dp0Build.vi" -unattended -- %BUILD_NUMBER% %errorfile% %runfile% "%WORKSPACE%%~4" "%JOB_NAME%" %2 %mcfile% %buildlogfile% %3 %5 %~6 
+START "" "%programFilesPath%\National Instruments\LabVIEW %1\LabVIEW.exe" "%~dp0Build.vi" -unattended -- %BUILD_NUMBER% %errorfile% %runfile% "%WORKSPACE%%~4" "%JOB_NAME%" %2 %mcfile% %buildlogfile% %3 %5 %~6 
 
 REM -- MONITOR BUILD, LOOP UNTIL BUILD IS FINISHED, use PING to act as a 'sleep' function for loop
 :BUILDRUNNING
